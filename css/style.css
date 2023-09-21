@@ -601,7 +601,7 @@ input:focus {
   .main_block_left {
     width: 380px;
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
   .main_block_left h2 {
     font-size: 80px;
