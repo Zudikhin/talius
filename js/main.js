@@ -10,6 +10,11 @@ $(document).ready(function() {
     //     }
     // });
 
+    $(".main_block_right_item").on("mouseenter", function() {
+      $(".main_block_right_item").removeClass("active");
+      $(this).addClass("active");
+    })
+
     $(".offer_block_nav_item").click(function() {
       var attr = $(this).attr("data-target");
       $(".offer_block_nav_item").removeClass("active");
