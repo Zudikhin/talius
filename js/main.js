@@ -101,23 +101,23 @@ $(document).ready(function() {
       });
 
     $('.resources_block_right_slider').slick({
-		slidesToShow: 2,
-		slidesToScroll: 1,
-		dots: false,
-		speed: 500,
-		autoplay: false,
-		prevArrow: $('.resources_block_right_nav_arrows_left'),
-      	nextArrow: $('.resources_block_right_nav_arrows_right'),
-        responsive: [
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 1,
-		        slidesToScroll: 1
-              }
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      dots: false,
+      speed: 500,
+      autoplay: false,
+      prevArrow: $('.resources_block_right_nav_arrows_left'),
+      nextArrow: $('.resources_block_right_nav_arrows_right'),
+      responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
             }
-        ]
-	});
+          }
+      ]
+	  });
 
     var $progressBar = $('.progress');
     var $progressBarLabel = $( '.slider__label' );
@@ -128,6 +128,43 @@ $(document).ready(function() {
         .css('background-size', calc + '% 100%')
         .attr('aria-valuenow', calc );
         $progressBarLabel.text( calc + '% completed' );
+    });
+
+    if($(window).width() < 1024) {
+      $('.habitat_main_list').slick({
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots: false,
+        speed: 500,
+        autoplay: false,
+        prevArrow: $('.habitat_main_nav_arrows_left'),
+        nextArrow: $('.habitat_main_nav_arrows_right'),
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+    }
+
+    var $progressBarHabitat = $('.habitat_main_nav_progress');
+    var $progressBarLabelHabitat = $( '.habitat_main_nav_slider__label');
+
+    $('.habitat_main_list').on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
+      var calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+      $progressBarHabitat
+      .css('background-size', calc + '% 100%')
+      .attr('aria-valuenow', calc );
+      $progressBarLabelHabitat.text( calc + '% completed' );
+    });
+    
+    $(".faq_block_right_item_title").click(function() {
+      $(this).toggleClass("active");
+      $(this).parent().find(".faq_block_right_item_block").slideToggle();
     });
 
 });
