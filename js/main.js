@@ -167,4 +167,36 @@ $(document).ready(function() {
       $(this).parent().find(".faq_block_right_item_block").slideToggle();
     });
 
+
+    $('.industry_solutions_list').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      dots: false,
+      speed: 500,
+      autoplay: false,
+      prevArrow: $('.industry_solutions_nav_arrows_left'),
+      nextArrow: $('.industry_solutions_nav_arrows_right'),
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+
+    var $progressBarIndusol = $('.industry_solutions_nav_progress');
+    var $progressBarLabelIndusol = $( '.industry_solutions_nav_slider__label');
+
+    $('.industry_solutions_list').on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
+      var calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+      $progressBarIndusol
+      .css('background-size', calc + '% 100%')
+      .attr('aria-valuenow', calc );
+      $progressBarLabelIndusol.text( calc + '% completed' );
+    });
+
 });
