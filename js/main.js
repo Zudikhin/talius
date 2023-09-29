@@ -81,6 +81,27 @@ $(document).ready(function() {
       $("#slideCurrent").text(count);
     });
 
+    var allSlideEnergy = $(".energy_efficiency_slider_block_wrap_item").length;
+    $(".energy_slider_all").text(allSlideEnergy);
+
+    $('.energy_efficiency_slider_block_wrap').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      speed: 500,
+      autoplay: false,
+      fade: true,
+      prevArrow: $('.energy_efficiency_slider_arrows_left'),
+      nextArrow: $('.energy_efficiency_slider_arrows_right')
+	  });
+
+    $('.energy_efficiency_slider_block_wrap').on('afterChange', function(event, slick, currentSlide, nextSlide) {
+      var count = currentSlide + 1;
+      $(".energy_slider_curr").text(count);
+    });
+
+
+
     $('.industry_block_right_slider').slick({
       slidesToShow: 2,
       slidesToScroll: 1,
