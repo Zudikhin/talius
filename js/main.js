@@ -208,7 +208,6 @@ $(document).ready(function() {
       ]
     });
 
-
     var $progressBarIndusol = $('.industry_solutions_nav_progress');
     var $progressBarLabelIndusol = $( '.industry_solutions_nav_slider__label');
 
@@ -219,5 +218,54 @@ $(document).ready(function() {
       .attr('aria-valuenow', calc );
       $progressBarLabelIndusol.text( calc + '% completed' );
     });
+
+
+    $('.offers_block').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      dots: false,
+      speed: 500,
+      autoplay: false,
+      prevArrow: $('.offers_nav_arrows_left'),
+      nextArrow: $('.offers_nav_arrows_right'),
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+    var $progressBarOffers = $('.offers_nav_progress');
+
+    $('.offers_block').on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
+      var calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+      $progressBarOffers
+      .css('background-size', calc + '% 100%')
+      .attr('aria-valuenow', calc );
+    });
+
+  const inViewport = (elem) => {
+    let allElements = document.getElementsByClassName(elem);
+    let windowHeight = window.innerHeight;
+    const elems = () => {
+        for (let i = 0; i < allElements.length; i++) {  //  loop through the sections
+            let viewportOffset = allElements[i].getBoundingClientRect();  //  returns the size of an element and its position relative to the viewport
+            let top = viewportOffset.top;  //  get the offset top
+            if(top < windowHeight){  //  if the top offset is less than the window height
+                allElements[i].classList.add('animation');  //  add the class
+            } else{
+                allElements[i].classList.remove('in-viewport');  //  remove the class
+            }
+        }
+    }
+    elems();
+    window.addEventListener('scroll', elems);
+  }
+
+  inViewport("anime");
 
 });
