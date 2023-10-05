@@ -15,6 +15,10 @@ $(document).ready(function() {
       $(this).addClass("active");
     });
 
+    $(".dealer_block_sidebar_item_switcher").click(function() {
+      $(this).toggleClass("active");
+    })
+
     $(".dropdown_mob_block_content_show_btn").click(function() {
       $(".dropdown_mob_block_content_show").removeClass("active");
       $(".dropdown_mob_block_content_menu").removeClass("hide");
@@ -247,6 +251,35 @@ $(document).ready(function() {
       .css('background-size', calc + '% 100%')
       .attr('aria-valuenow', calc );
     });
+
+    $('.management_block_slider').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      dots: false,
+      speed: 500,
+      autoplay: false,
+      prevArrow: $('.management_block_nav_arrows_left'),
+      nextArrow: $('.management_block_nav_arrows_right'),
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+    var $progressBarManagement = $('.management_block_nav_progress');
+
+    $('.management_block_slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
+      var calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+      $progressBarManagement
+      .css('background-size', calc + '% 100%')
+      .attr('aria-valuenow', calc );
+    });
+
 
   const inViewport = (elem) => {
     let allElements = document.getElementsByClassName(elem);

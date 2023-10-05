@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="apps-r">
+<g id="vector">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.3333 3H3V14.3333H14.3333V3ZM5 12.3333V5H12.3333V12.3333H5Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.3333 17.6667H3V29H14.3333V17.6667ZM5 27V19.6667H12.3333V27H5Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.6667 3H29V14.3333H17.6667V3ZM19.6667 5V12.3333H27V5H19.6667Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M29 17.6667H17.6667V29H29V17.6667ZM19.6667 27V19.6667H27V27H19.6667Z" fill="black"/>
+</g>
+</g>
+</svg>
